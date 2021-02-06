@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 String inputName = eName.getText().toString();
                 String inputPassword = ePassword.getText().toString();
 
-                if((inputName.isEmpty() || inputPassword.isEmpty())) {
+                if ((inputName.isEmpty() || inputPassword.isEmpty())) {
                     Toast.makeText(v.getContext(), "Error, blank fields!", Toast.LENGTH_SHORT).show();
                 } else {
                     isValid = validate(inputName, inputPassword);
@@ -54,11 +54,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private boolean validate(String name, String password) {
-        if(name.equals(Username) && password.equals(Password)){
+    boolean validate(String name, String password) {
+        if (name.equals(Username) && password.equals(Password)) {
             return true;
         }
 
         return false;
+    }
+
+    static String usernameChecker(String name) {
+        if (name.equals("admin")) {
+            return name;
+        }
+
+        return "Wrong";
+    }
+
+    static String passwordChecker(String password) {
+        if (password.equals("password")) {
+            return password;
+        }
+        return "Wrong";
     }
 }
